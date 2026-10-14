@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nxyskqjxwu00"
-path="res://.godot/imported/BatteryOverlay.png-ed68910536b00f0d67295240ad985bde.ctex"
+uid="uid://br2vbpsu1sept"
+path="res://.godot/imported/labyrinth-tiles.png-b0d2b00da4e6848226dce93ab8c375e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Wednesday/BatteryOverlay.png"
-dest_files=["res://.godot/imported/BatteryOverlay.png-ed68910536b00f0d67295240ad985bde.ctex"]
+source_file="res://Assets/Sprites/Tuesday/labyrinth-tiles.png"
+dest_files=["res://.godot/imported/labyrinth-tiles.png-b0d2b00da4e6848226dce93ab8c375e9.ctex"]
 
 [params]
 

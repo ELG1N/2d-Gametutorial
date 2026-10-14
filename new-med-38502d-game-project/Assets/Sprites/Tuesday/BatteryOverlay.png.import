@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://duxsni5y68uty"
-path="res://.godot/imported/BatteryCharged.png-c5a2720d96a2e4fa61fd968afc3feb2d.ctex"
+uid="uid://nxyskqjxwu00"
+path="res://.godot/imported/BatteryOverlay.png-3812bfc6eec7d609f75eb8e172debe30.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Wednesday/BatteryCharged.png"
-dest_files=["res://.godot/imported/BatteryCharged.png-c5a2720d96a2e4fa61fd968afc3feb2d.ctex"]
+source_file="res://Assets/Sprites/Tuesday/BatteryOverlay.png"
+dest_files=["res://.godot/imported/BatteryOverlay.png-3812bfc6eec7d609f75eb8e172debe30.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnw4gmwsu6cxh"
-path="res://.godot/imported/labyrinth-blob-character.png-895333396b6a54a0ffd1bab5a646b008.ctex"
+uid="uid://duxsni5y68uty"
+path="res://.godot/imported/BatteryCharged.png-dd4a5356ad98aa769e12b5bc15c9bc0f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Wednesday/labyrinth-blob-character.png"
-dest_files=["res://.godot/imported/labyrinth-blob-character.png-895333396b6a54a0ffd1bab5a646b008.ctex"]
+source_file="res://Assets/Sprites/Tuesday/BatteryCharged.png"
+dest_files=["res://.godot/imported/BatteryCharged.png-dd4a5356ad98aa769e12b5bc15c9bc0f.ctex"]
 
 [params]
 

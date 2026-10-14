@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://br2vbpsu1sept"
-path="res://.godot/imported/labyrinth-tiles.png-2d37b3311a2ebd1bfd655d6c764a403c.ctex"
+uid="uid://cnw4gmwsu6cxh"
+path="res://.godot/imported/labyrinth-blob-character.png-25bf05339eed387892d0b68bfdac8461.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Wednesday/labyrinth-tiles.png"
-dest_files=["res://.godot/imported/labyrinth-tiles.png-2d37b3311a2ebd1bfd655d6c764a403c.ctex"]
+source_file="res://Assets/Sprites/Tuesday/labyrinth-blob-character.png"
+dest_files=["res://.godot/imported/labyrinth-blob-character.png-25bf05339eed387892d0b68bfdac8461.ctex"]
 
 [params]
 
