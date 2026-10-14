@@ -1,0 +1,22 @@
+{
+  "intro": "Use WASD or the ARROW KEYS to Navigate Chris. E is used to interact with objects and other characters. If you are repeating this level, you can use the SPACE BAR to skip guides and dialogue.",
+  "sewer-arrived": [
+	"Oh No!!",
+	"It's really dark down here, I'll use my phone's flashlight.",
+    "Ahh man! The bars are too rusty, looks like I'll need to find another way out, my phone should have enough juice."
+  ],
+  "fake-exit": [
+	"Not again!! The bars are too rusty, looks like I'll need to find another way out",
+    "I really thought I could get out this way, I guess my search continues."
+  ],
+  "real-exit": [
+    "Thank goodness, I've made it to the school without dying in a sewer!!!"
+  ],
+  "battery-level": [
+	"My phone is nearly halfway out of battery, I gotta find the exit soon, I don't want to get stuck down here.",
+    "My phone is nearly out of battery, I really gotta find the exit soon, I don't want to get stuck down here."
+  ],
+  "out-of-battery": [
+    "My phone died, I hope this is just a bad dream."
+  ]
+}
