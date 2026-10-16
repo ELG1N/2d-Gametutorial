@@ -87,3 +87,21 @@ enum BatteryState {
 	QUARTER,
 	EMPTY,
 }
+
+## Name:
+## 	DialogueBoxSizes
+##
+## Description:
+## 	Used to tell instances of the dialogue view class what size of dialogue box
+## 	to render.
+##
+## Members:
+## 	SMALL  -> 32 x 32
+## 	MEDIUM -> 64 x 32
+## 	LARGE  -> 128 x 32
+##
+enum DialogueBoxSizes {
+	SMALL,
+	MEDIUM,
+	LARGE,
+}

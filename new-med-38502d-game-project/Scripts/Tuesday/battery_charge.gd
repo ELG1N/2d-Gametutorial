@@ -9,6 +9,11 @@ extends Control
 ## Purpose:
 ## 	Provide functions to update and reset the visual state of the battery.
 ##
+
+##
+## Constant for the player health, makes it easier for resetting, and avoiding
+## magic numbers.
+##
 const MAX_BATTERY_CHARGE: float = 100
 
 

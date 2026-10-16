@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="NewMed38502DGameProject"
-run/main_scene="uid://b4hweewnrr68j"
+run/main_scene="uid://db1e3ev0nc4hy"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -22,6 +22,10 @@ window/size/viewport_height=216
 window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/GDQuest_GDScript_formatter/plugin.cfg")
 
 [input]
 

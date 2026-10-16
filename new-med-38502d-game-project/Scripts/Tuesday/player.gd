@@ -12,22 +12,42 @@ extends CharacterBody2D
 ## 	accordingly
 ##
 
-## Loading GameTypes Script
+#region Loading Resources
+##
+## Loading GameTypes Script for easier communication between the game scene and
+## player scene.
+##
 const GameTypes := preload("res://Scripts/Tuesday/game_types.gd")
+#endregion
 
+#region Default Values
+##
 ## Setting Default Animation
+##
 const ANIMATION_DEFAULT := GameTypes.MovementState.IDLE
 
+##
 ## Setting Player Walk Speed
+##
 const SPEED: float = 3200
+#endregion
 
+#region Global Variables
+##
 ## Global for changing the type of animation that gets rendered
+##
 var animation_type: GameTypes.MovementState
 
 ## Global for storing the amounts of items in the Player's inventory
-var inventory: Dictionary[GameTypes.ItemTypes, int] = {GameTypes.ItemTypes.SNAKE : 0, GameTypes.ItemTypes.SODA : 0, GameTypes.ItemTypes.SNAKE_SKIN_HAT : 0 }
+var inventory: Dictionary[GameTypes.ItemTypes, int] \
+= {                                                 \
+	GameTypes.ItemTypes.SNAKE : 0,                  \
+	GameTypes.ItemTypes.SODA : 0,                   \
+	GameTypes.ItemTypes.SNAKE_SKIN_HAT : 0          \
+}
+#endregion
 
-
+#region Inventory Functions
 ##
 ## Name:
 ## 	has_item
@@ -87,7 +107,9 @@ func add_item(item: GameTypes.ItemTypes) -> void:
 func clear_inventory() -> void:
 	for item in inventory:
 		item = 0
+#endregion
 
+#region Node Functions
 ##
 ## Name:
 ## 	_ready
@@ -110,7 +132,9 @@ func _ready() -> void:
 	animation_type = GameTypes.MovementState.IDLE
 	$AnimatedSprite2D.play("default")
 	clear_inventory()
+#endregion
 
+#region Player Movement
 ##
 ## Borrowed from GDQuest guide: 
 ## 
@@ -172,3 +196,4 @@ func _physics_process(delta: float) -> void:
 	movement = direction.normalized() * SPEED * delta
 	velocity = cartesian_to_isometric(movement)
 	move_and_slide()
+#endregion
