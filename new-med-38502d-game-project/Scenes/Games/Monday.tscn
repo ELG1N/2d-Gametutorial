@@ -24,6 +24,14 @@ sources/0 = SubResource("TileSetAtlasSource_7vtja")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lqyn0"]
 size = Vector2(1051.5, 38)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lc8yl"]
+size = Vector2(20, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cofu3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4087v"]
+size = Vector2(20, 13.5)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nygc3"]
 size = Vector2(20, 149)
 
@@ -42,40 +50,31 @@ collision_mask = 5
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1274824328]
 
-[node name="StaticBody2D" parent="." unique_id=307173947 instance=ExtResource("3_dr1rh")]
-position = Vector2(177, 129)
+[node name="Grandpa" parent="." unique_id=133710800 instance=ExtResource("3_dr1rh")]
+position = Vector2(537, 145)
 
-[node name="StaticBody2D5" parent="." unique_id=2133291881 instance=ExtResource("3_dr1rh")]
-position = Vector2(543, 62)
+[node name="Grandpa4" parent="." unique_id=307173947 instance=ExtResource("3_dr1rh")]
+position = Vector2(542, 62)
 rotation = 3.1415927
 
-[node name="StaticBody2D2" parent="." unique_id=1356484975 instance=ExtResource("4_y4s5u")]
-position = Vector2(216, 35)
+[node name="Grandpa2" parent="." unique_id=704266867 instance=ExtResource("3_dr1rh")]
+position = Vector2(176, 129)
 
-[node name="StaticBody2D4" parent="." unique_id=318002373 instance=ExtResource("4_y4s5u")]
-position = Vector2(399, 67)
-
-[node name="StaticBody2D3" parent="." unique_id=868137992 instance=ExtResource("5_ovv2c")]
-position = Vector2(293, 120)
-
-[node name="RugGuys" parent="." unique_id=778300677 instance=ExtResource("4_y4s5u")]
-position = Vector2(631, 34)
-
-[node name="Grandpa" parent="." unique_id=133710800 instance=ExtResource("3_dr1rh")]
-position = Vector2(543, 146)
-
-[node name="Grandpa2" parent="." unique_id=829395382 instance=ExtResource("3_dr1rh")]
-position = Vector2(637, 146)
+[node name="Grandpa3" parent="." unique_id=67241684 instance=ExtResource("3_dr1rh")]
+position = Vector2(633, 146)
 
 [node name="ItsLightGuys" parent="." unique_id=1603896565 instance=ExtResource("5_ovv2c")]
 position = Vector2(748, 121)
 
-[node name="ItsLightGuys2" parent="." unique_id=1614391289 instance=ExtResource("5_ovv2c")]
-position = Vector2(913, 55)
+[node name="ItsLightGuys4" parent="." unique_id=868137992 instance=ExtResource("5_ovv2c")]
+position = Vector2(907, 54)
 rotation = 3.1415927
 
-[node name="ItsLightGuys3" parent="." unique_id=2134868021 instance=ExtResource("5_ovv2c")]
-position = Vector2(1021, 121)
+[node name="ItsLightGuys2" parent="." unique_id=885903527 instance=ExtResource("5_ovv2c")]
+position = Vector2(1022, 122)
+
+[node name="ItsLightGuys35" parent="." unique_id=1675104979 instance=ExtResource("5_ovv2c")]
+position = Vector2(292, 123)
 
 [node name="kill" type="Area2D" parent="." unique_id=1999274240]
 collision_layer = 4
@@ -85,13 +84,27 @@ collision_mask = 4
 position = Vector2(528.25, 191)
 shape = SubResource("RectangleShape2D_lqyn0")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="kill" unique_id=854549837]
+position = Vector2(376, 30.5)
+shape = SubResource("RectangleShape2D_lc8yl")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="kill" unique_id=1352738130]
+position = Vector2(521, 20)
+shape = SubResource("RectangleShape2D_cofu3")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="kill" unique_id=1454114645]
+position = Vector2(532, 39.25)
+shape = SubResource("RectangleShape2D_4087v")
+
 [node name="win" type="Area2D" parent="." unique_id=1001322771]
+position = Vector2(-24, -2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="win" unique_id=647236124]
-position = Vector2(1120, 96.5)
+position = Vector2(1140, 98)
 shape = SubResource("RectangleShape2D_nygc3")
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=118711410]
+scroll_offset = Vector2(0, -1)
 repeat_size = Vector2(725.885, 0)
 autoscroll = Vector2(57.775, 0)
 repeat_times = 5
@@ -103,8 +116,26 @@ scale = Vector2(0.2836762, 0.14134042)
 texture = ExtResource("7_y4s5u")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=611313096]
+position = Vector2(-32, 18)
 stream = ExtResource("8_ovv2c")
 volume_db = -4.269
 autoplay = true
 
+[node name="RugGuys" parent="." unique_id=1356484975 instance=ExtResource("4_y4s5u")]
+position = Vector2(206, 34)
+
+[node name="RugGuys2" parent="." unique_id=1161876188 instance=ExtResource("4_y4s5u")]
+position = Vector2(400, 67)
+
+[connection signal="die" from="Grandpa" to="Player" method="_on_grandpa_die"]
+[connection signal="die" from="Grandpa4" to="Player" method="_on_grandpa_die"]
+[connection signal="die" from="Grandpa2" to="Player" method="_on_grandpa_die"]
+[connection signal="die" from="Grandpa3" to="Player" method="_on_grandpa_die"]
+[connection signal="die" from="ItsLightGuys" to="Player" method="_on_its_light_guys_die"]
+[connection signal="die" from="ItsLightGuys4" to="Player" method="_on_its_light_guys_die"]
+[connection signal="die" from="ItsLightGuys2" to="Player" method="_on_its_light_guys_die"]
+[connection signal="die" from="ItsLightGuys35" to="Player" method="_on_its_light_guys_die"]
 [connection signal="body_entered" from="kill" to="Player" method="_on_kill_body_entered"]
+[connection signal="body_entered" from="win" to="Player" method="_on_win_body_entered"]
+[connection signal="die" from="RugGuys" to="Player" method="_on_rug_guys_die"]
+[connection signal="die" from="RugGuys2" to="Player" method="_on_rug_guys_die"]
