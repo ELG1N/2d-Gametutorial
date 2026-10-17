@@ -23,7 +23,7 @@ func Die():
 	self.velocity.x = 0
 	%AnimatedSprite2D.play("die")
 	%AnimatedSprite2D.stop()
-	await get_tree().create_timer(2.5).timeout
+	await get_tree().create_timer(2.0).timeout
 	get_tree().change_scene_to_file("res://Scenes/Components/Monday/flappylose.tscn")
 
 
@@ -51,4 +51,8 @@ func _on_rug_guys_die() -> void:
 
 
 func _on_its_light_guys_die() -> void:
+	Die()
+
+
+func _on_itsflyingcar_die() -> void:
 	Die()
