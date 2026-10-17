@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dnqua33yw8e6j"]
+
+[ext_resource type="Script" uid="uid://ddm0ahb0cmyvf" path="res://Scripts/Tuesday/single_dialogue_view.gd" id="1_jduou"]
+
+[node name="SingleDialogueView" type="Control" unique_id=270453511]
+z_index = 20
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jduou")
+box_text = null
+box_size = null
+
+[node name="Texture" type="NinePatchRect" parent="." unique_id=408476182]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Text" type="RichTextLabel" parent="." unique_id=2020605643]
+unique_name_in_owner = true
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+fit_content = true
+scroll_active = false
+
+[node name="DialogueViewTimer" type="Timer" parent="." unique_id=1611218831]
+unique_name_in_owner = true
+wait_time = 10.0
+one_shot = true
+
+[connection signal="timeout" from="DialogueViewTimer" to="." method="_on_dialogue_view_timer_timeout"]
