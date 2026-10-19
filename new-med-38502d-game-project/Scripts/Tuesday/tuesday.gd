@@ -175,6 +175,8 @@ const DEFAULT_BATTERY_CHARGE: float \
 ##
 var battery_charge: float \
 = DEFAULT_BATTERY_CHARGE
+var battery_one_collected: bool = false
+var battery_two_collected: bool = false
 
 ##
 ## Global state tracker for relative player position in the map, helps to
@@ -224,14 +226,13 @@ var multi_dialogue_state: MultiDialogueState \
 ## 	None
 ##
 func _ready() -> void:
-	%Player.global_position = %Spawn/Intro.global_position
+	%Player.global_position = $Teleportation/Intro.global_position
 	%Player/Flashlight.hide()
 	%World/CanvasModulate.hide()
 	%World/Background.hide()
 	%BatteryCharge.hide()
-	battery_charge = DEFAULT_BATTERY_CHARGE
-	%SingleDialogueView.update_box(GAME_TYPES.DialogueBoxSizes.MEDIUM, DIALOGUE["intro"])
-	%SingleDialogueView.show_and_start_timer()
+	single_dialogue_state = SingleDialogueState.LOUD
+	%SingleDialogueView.show_and_start_timer(DIALOGUE["intro"])
 
 ##
 ## Name:
@@ -254,7 +255,7 @@ func _ready() -> void:
 ##
 func _process(_delta: float) -> void:
 	if map_state == MapState.INTRO:
-		%Manhole.position.x = %Player.position.x
+		%Manhole.global_position.x = %Player.global_position.x
 	if Input.is_action_pressed("UP"):
 		action_type = ActionType.MOVEMENT
 		$Player.animation_type = GAME_TYPES.MovementState.NORTH_EAST
@@ -267,60 +268,137 @@ func _process(_delta: float) -> void:
 	elif Input.is_action_pressed("LEFT"):
 		action_type = ActionType.MOVEMENT
 		$Player.animation_type = GAME_TYPES.MovementState.NORTH_WEST
-	elif Input.is_action_pressed("INTERACT"):
-		action_type = ActionType.INTERACT
 	elif Input.is_action_pressed("Jump"):
-		action_type = ActionType.SKIP_DIALOGUE
-		if %SingleDialogueView.visible:
-			%SingleDialogueView.skip_dialogue()
+		skip_dialogue()
 	elif Input.is_action_pressed("esc"):
 		action_type = ActionType.SETTINGS
 	else:
 		action_type = ActionType.MOVEMENT
 		$Player.animation_type = GAME_TYPES.MovementState.IDLE
+	check_battery()
 #endregion
 
-#region Signals & Events
+#region helperfunctions
+func skip_dialogue():
+	if single_dialogue_state == SingleDialogueState.LOUD:
+		%SingleDialogueView.skip_dialogue()
+	if multi_dialogue_state == MultiDialogueState.LOUD:
+		%MultiDialogueView.skip_dialogue()
 
-##TODO: Comment
+func check_battery():
+	match battery_charge:
+		75:
+			single_dialogue_state = SingleDialogueState.LOUD
+			%SingleDialogueView.show_and_start_timer(DIALOGUE["battery-level-three-quarters"])
+		50:
+			single_dialogue_state = SingleDialogueState.LOUD
+			%SingleDialogueView.show_and_start_timer(DIALOGUE["battery-level-halfway"])
+		25:
+			single_dialogue_state = SingleDialogueState.LOUD
+			%SingleDialogueView.show_and_start_timer(DIALOGUE["battery-level-quarter"])
+		0:
+			single_dialogue_state = SingleDialogueState.LOUD
+			%SingleDialogueView.show_and_start_timer(DIALOGUE["battery-level-empty"])
+			await %SingleDialogueView.dialogue_end
+			print("**death animation**")
+			reset()
+
+func reset():
+	action_type = DEFAULT_ACTION_TYPE
+	single_dialogue_state = DEFAULT_SINGLE_DIALOGUE_STATE
+	multi_dialogue_state = DEFAULT_MULTI_DIALOGUE_STATE
+	battery_one_collected = false
+	battery_two_collected = false
+	map_state = MapState.INTRO
+	battery_charge = DEFAULT_BATTERY_CHARGE
+	%BatteryCharge.reset()
+	%Player.global_position = $Teleportation/Intro.global_position
+	%Player/Flashlight.hide()
+	%World/CanvasModulate.hide()
+	%World/Background.hide()
+	%BatteryCharge.hide()
+	single_dialogue_state = SingleDialogueState.LOUD
+	%SingleDialogueView.show_and_start_timer(DIALOGUE["intro"])
+
+
+#endregion
+
+
+#region Signals & Events
 func _on_battery_drain_timer_timeout() -> void:
 	battery_charge -= 1
-	%BatteryCharge._update(battery_charge)
+	%BatteryCharge.update(battery_charge)
 
-##TODO: Comment
 func _on_true_exit_door_area_entered(area: Area2D) -> void:
-	%Player.global_position = %Spawn/School.global_position
+	%BatteryDrainTimer.stop()
+	single_dialogue_state = SingleDialogueState.LOUD
+	%SingleDialogueView.show_and_start_timer(DIALOGUE["real-exit"])
+	await %SingleDialogueView.dialogue_end
+	%Player.global_position = $Teleportation/University.global_position
+	%BatteryCharge.visible = false
 	%World/CanvasModulate.visible = false
 	%World/Background.visible = false
 	%Player/Flashlight.visible = false
-	print("YIPPEE, you've made it to the university")
+	
 
-##TODO: Comment
 func _on_sewer_spawn_area_entered(area: Area2D) -> void:
-	# need to check if player was not initally in the
-	# sewer so that the battery drain timer does not get
-	# reset.
 	if map_state != MapState.SEWER_COMMITED:
 		map_state = MapState.SEWER_COMMITED
+		multi_dialogue_state = MultiDialogueState.LOUD
+		%MultiDialogueView.show_and_start_timer(DIALOGUE["sewer-arrived"])
+		await %MultiDialogueView.dialogue_end
 		%BatteryCharge.show()
+		%Player/Flashlight.show()
+		single_dialogue_state = SingleDialogueState.LOUD
+		%SingleDialogueView.show_and_start_timer(DIALOGUE["bars"])
+		await %SingleDialogueView.dialogue_end
 		%BatteryDrainTimer.start()
-		%Player/Flashlight.visible = true
 
-##TODO: Comment
 func _on_fake_exit_door_area_entered(area: Area2D) -> void:
-	print("Oh no, the bars are too rusty, I can't exit here")
+	multi_dialogue_state = MultiDialogueState.LOUD
+	%MultiDialogueView.show_and_start_timer(DIALOGUE["fake-exit"])
 
-##TODO: Comment
 func _on_manhole_area_entered(area: Area2D) -> void:
 	if single_dialogue_state == SingleDialogueState.SILENT:
-		%Player.global_position = %Spawn/Sewer.global_position
+		%Player.global_position = $Teleportation/SewerSpawn.global_position
 		single_dialogue_state = SingleDialogueState.LOUD
 		%World/CanvasModulate.visible = true
 		%World/Background.visible = true
 		map_state = MapState.SEWER_ENTERED
 
-##TODO: Comment
+func _on_battery_01_area_entered(area: Area2D) -> void:
+	if !battery_one_collected:
+		single_dialogue_state = SingleDialogueState.LOUD
+		%SingleDialogueView.show_and_start_timer(DIALOGUE["first-battery"])
+		await %SingleDialogueView.dialogue_end
+		battery_charge = DEFAULT_BATTERY_CHARGE
+
+func _on_battery_02_area_entered(area: Area2D) -> void:
+	if !battery_two_collected:
+		single_dialogue_state = SingleDialogueState.LOUD
+		%SingleDialogueView.show_and_start_timer(DIALOGUE["second-battery"])
+		await %SingleDialogueView.dialogue_end
+		battery_charge = DEFAULT_BATTERY_CHARGE
+
+func _on_correct_area_announcement_area_entered(area: Area2D) -> void:
+	single_dialogue_state = SingleDialogueState.LOUD
+	%SingleDialogueView.show_and_start_timer(DIALOGUE["second-area-entered"])
+	await %SingleDialogueView.dialogue_end
+	battery_charge = DEFAULT_BATTERY_CHARGE
+
+func _on_secret_area_area_entered(area: Area2D) -> void:
+	single_dialogue_state = SingleDialogueState.LOUD
+	%SingleDialogueView.show_and_start_timer(DIALOGUE["secret-area-entered"])
+	await %SingleDialogueView.dialogue_end
+	battery_charge = DEFAULT_BATTERY_CHARGE
+
+func _on_next_game_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.
+
 func _on_single_dialogue_view_dialogue_end() -> void:
 	single_dialogue_state = SingleDialogueState.SILENT
+
+func _on_multi_dialogue_view_dialogue_end() -> void:
+	multi_dialogue_state = MultiDialogueState.SILENT
 
 #endregion

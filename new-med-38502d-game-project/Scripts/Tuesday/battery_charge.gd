@@ -54,7 +54,7 @@ func _ready() -> void:
 ## Errors:
 ## 	None
 ##
-func _reset() -> void:
+func reset() -> void:
 	$TextureProgressBar.value = MAX_BATTERY_CHARGE
 
 ##
@@ -73,5 +73,5 @@ func _reset() -> void:
 ## Errors:
 ## 	None
 ##
-func _update(new_charge: float) -> void:
+func update(new_charge: float) -> void:
 	$TextureProgressBar.value = new_charge

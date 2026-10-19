@@ -1,22 +1,21 @@
 {
-  "intro": "Use WASD or the ARROW KEYS to Navigate Chris. E is used to interact with objects and other characters. If you are repeating this level, you can use the SPACE BAR to skip guides and dialogue.",
   "sewer-arrived": [
 	"Oh No!!",
-	"It's really dark down here, I'll use my phone's flashlight.",
-    "Ahh man! The bars are too rusty, looks like I'll need to find another way out, my phone should have enough juice."
+    "It's really dark down here, I'll use my phone's flashlight."
   ],
   "fake-exit": [
 	"Not again!! The bars are too rusty, looks like I'll need to find another way out",
     "I really thought I could get out this way, I guess my search continues."
   ],
-  "real-exit": [
-    "Thank goodness, I've made it to the school without dying in a sewer!!!"
-  ],
-  "battery-level": [
-	"My phone is nearly halfway out of battery, I gotta find the exit soon, I don't want to get stuck down here.",
-    "My phone is nearly out of battery, I really gotta find the exit soon, I don't want to get stuck down here."
-  ],
-  "out-of-battery": [
-    "My phone died, I hope this is just a bad dream."
-  ]
+  "intro": "Use WASD or the ARROW KEYS to Navigate Chris. If you are repeating this level, or hate reading in general, use the SPACE key to skip dialogue.",
+  "bars": "Ahh man! The bars are too rusty, looks like I'll need to find another way out, my phone should have enough juice.",
+  "real-exit": "Thank goodness, I've found the exit, and now I won't die in a sewer!!!",
+  "first-battery": "Ohh, look a battery, don't mind if I do, I don't think whom ever got stuck down here is going to be needing it",
+  "second-battery": "Ohh, look another battery, lucky me, I'll take it.",
+  "second-area-entered": "This seems like a new environment, I must have gotten closer to the exit.",
+  "secret-area-entered": "Hmm... seems like the developers left this one in, for the thrill of the game.",
+  "battery-level-three-quarters": "My phone is nearly halfway out of battery, I've got time, but I should pick up the pace.",
+  "battery-level-halfway": "My phone is halfway out of battery, I must find the exit soon.",
+  "battery-level-quarter": "My phone is nearly out of battery, I really gotta find the exit soon, I don't want to get stuck down here.",
+  "battery-level-empty": "My phone just died, I hope this is just a bad dream."
 }

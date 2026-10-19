@@ -36,7 +36,6 @@ grow_horizontal = 2
 grow_vertical = 2
 step = -1.0
 value = 100.0
-nine_patch_stretch = true
 texture_under = ExtResource("2_gfql5")
 texture_over = ExtResource("3_ie0tb")
 texture_progress = ExtResource("4_u0lbo")
