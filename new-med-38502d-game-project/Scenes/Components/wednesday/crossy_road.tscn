@@ -5,7 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://cdyajjgv7eie1" path="res://Assets/Sprites/Wednesday/fence4.png" id="2_rtrrk"]
 [ext_resource type="PackedScene" uid="uid://crt305mmkudnl" path="res://Scenes/Components/wednesday/water.tscn" id="3_gn75n"]
 [ext_resource type="PackedScene" uid="uid://5c1u5a7npu7g" path="res://Scenes/Components/wednesday/house.tscn" id="5_2alrx"]
-[ext_resource type="PackedScene" uid="uid://i2asjxk05qtg" path="res://Scenes/Components/wednesday/SmallLog.tscn" id="6_vltxq"]
+[ext_resource type="PackedScene" uid="uid://tkx88glu8s4" path="res://Scenes/Components/wednesday/logspawner.tscn" id="7_58t1u"]
+[ext_resource type="Script" uid="uid://xmoio5guuelc" path="res://Scenes/Components/wednesday/camera_2d.gd" id="7_rseev"]
+[ext_resource type="Script" uid="uid://c2frp8gbc2muw" path="res://Scripts/WEDNESDAY/killzone.gd" id="7_wpsvu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rtrrk"]
 texture = ExtResource("1_4fxd8")
@@ -52,6 +54,9 @@ texture = ExtResource("2_rtrrk")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_2alrx")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lqyn0"]
+size = Vector2(430.5, 33.5)
+
 [node name="Wednesday" type="Node2D" unique_id=715809021]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=45928023]
@@ -62,36 +67,95 @@ tile_set = SubResource("TileSet_lqyn0")
 tile_map_data = PackedByteArray("AAD8/wMAAAABAAIAAAD//wEAAAACAAEAAAD//wIAAAACAAIAAAD//wMAAAADAAMAAAD+/wMAAAABAAIAAAD9/wMAAAABAAIAAAD7/wMAAAAAAAAAAAD7//j/AAAAAAAAAAD8//j/AAABAAIAAAD9//j/AAABAAIAAAD+//j/AAABAAIAAAD///j/AAABAAIAAAAAAPj/AAABAAIAAAABAPj/AAABAAIAAAADAPj/AAABAAIAAAAEAPj/AAABAAIAAAAFAPj/AAABAAIAAAAGAPj/AAABAAIAAAAHAPj/AAABAAIAAAAIAPj/AAABAAIAAAAJAPj/AAABAAAAAAA=")
 tile_set = SubResource("TileSet_lc8yl")
 
-[node name="Node2D" parent="." unique_id=106013237 instance=ExtResource("3_gn75n")]
+[node name="waterRight" parent="." unique_id=106013237 instance=ExtResource("3_gn75n")]
 z_index = -1
 position = Vector2(39, -88)
 scale = Vector2(2.725, 1)
 
-[node name="Node2D2" parent="." unique_id=732161563 instance=ExtResource("3_gn75n")]
+[node name="waterLeft" parent="." unique_id=732161563 instance=ExtResource("3_gn75n")]
 z_index = -1
 position = Vector2(44.000004, -472)
 scale = Vector2(2.725, 1)
 
-[node name="Node2D3" parent="." unique_id=1959113197 instance=ExtResource("3_gn75n")]
+[node name="WaterRight" parent="." unique_id=1959113197 instance=ExtResource("3_gn75n")]
 z_index = -1
 position = Vector2(41, -536)
 rotation = 3.1415927
 scale = Vector2(2.725, 1)
 
-[node name="CharacterBody2D" parent="." unique_id=1461004772 instance=ExtResource("2_gn75n")]
-position = Vector2(36, -53)
-metadata/_edit_group_ = true
-
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1628593386]
-zoom = Vector2(1.46, 1.46)
-
 [node name="StaticBody2D" parent="." unique_id=1977495973 instance=ExtResource("5_2alrx")]
 position = Vector2(-49, 41)
 
-[node name="StaticBody2D2" parent="." unique_id=1347952078 instance=ExtResource("6_vltxq")]
-position = Vector2(34, -74)
-
 [node name="spawnLog" type="Marker2D" parent="." unique_id=1397542594]
 
-[connection signal="not_on_log_left" from="StaticBody2D2" to="CharacterBody2D" method="_on_static_body_2d_2_not_on_log_left"]
-[connection signal="on_log_left" from="StaticBody2D2" to="CharacterBody2D" method="_on_static_body_2d_2_on_log_left"]
+[node name="killzone" type="Area2D" parent="." unique_id=1526086464]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("7_wpsvu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone" unique_id=1018965278]
+position = Vector2(55, -91.25)
+shape = SubResource("RectangleShape2D_lqyn0")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="killzone" unique_id=2040002109]
+position = Vector2(43, -471)
+shape = SubResource("RectangleShape2D_lqyn0")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="killzone" unique_id=504740430]
+position = Vector2(42, -537)
+shape = SubResource("RectangleShape2D_lqyn0")
+
+[node name="logspawner" parent="." unique_id=1339179084 instance=ExtResource("7_58t1u")]
+position = Vector2(-167, -70)
+log_speed = 22
+
+[node name="logspawner2" parent="." unique_id=1809478286 instance=ExtResource("7_58t1u")]
+position = Vector2(-185, -89)
+log_speed = 31
+
+[node name="logspawner3" parent="." unique_id=1367261993 instance=ExtResource("7_58t1u")]
+position = Vector2(-201, -106)
+log_speed = 35
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1628593386]
+position = Vector2(39, -64)
+zoom = Vector2(1.46, 1.46)
+script = ExtResource("7_rseev")
+
+[node name="CharacterBody2D" parent="." unique_id=1461004772 instance=ExtResource("2_gn75n")]
+unique_name_in_owner = true
+z_index = 2
+position = Vector2(25, -431)
+metadata/_edit_group_ = true
+
+[node name="logspawner4" parent="." unique_id=1208285422 instance=ExtResource("7_58t1u")]
+position = Vector2(259, -455)
+log_speed = 24
+left = true
+
+[node name="logspawner5" parent="." unique_id=1450473180 instance=ExtResource("7_58t1u")]
+position = Vector2(278, -469)
+log_speed = 27
+left = true
+
+[node name="logspawner6" parent="." unique_id=458460032 instance=ExtResource("7_58t1u")]
+position = Vector2(262, -486)
+log_speed = 35
+left = true
+
+[node name="logspawner7" parent="." unique_id=507425086 instance=ExtResource("7_58t1u")]
+position = Vector2(-182, -519)
+log_speed = 20
+
+[node name="logspawner8" parent="." unique_id=259208302 instance=ExtResource("7_58t1u")]
+position = Vector2(-183, -535)
+log_speed = 35
+
+[node name="logspawner9" parent="." unique_id=1302393951 instance=ExtResource("7_58t1u")]
+position = Vector2(-181, -553)
+log_speed = 23
+
+[connection signal="body_entered" from="killzone" to="killzone" method="_on_body_entered"]
+[connection signal="body_exited" from="killzone" to="killzone" method="_on_body_exited"]
+[connection signal="off_water" from="killzone" to="CharacterBody2D" method="_on_killzone_off_water"]
+[connection signal="on_water" from="killzone" to="CharacterBody2D" method="_on_killzone_on_water"]

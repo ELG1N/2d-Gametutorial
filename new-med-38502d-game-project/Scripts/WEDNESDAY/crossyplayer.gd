@@ -6,7 +6,9 @@ const JUMP_VELOCITY = -400.0
 var hopping: bool = false
 var on_log_left: bool = false
 var on_log_right: bool = false
-
+var on_water: bool = false
+var log_count: int = 0
+var log_speed: float = 0
 @export var tile_size := 16
 @export var hop_time := 0.15
 @export var hop_height := 6.0
@@ -18,8 +20,9 @@ var on_log_right: bool = false
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	# Handle jump.
-	if on_log_left:
-		position.x += 0.47825
+	checkdeath()
+	if log_count > 0:
+		position.x += log_speed * delta
 	if Input.is_action_just_pressed("Jump"):
 		hop()
 	if Input.is_action_pressed("LEFT"):
@@ -31,6 +34,11 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = 0
 		$Sprite3.play("baseidle")
+		checkdeath()
+		if self.position.x < -89:
+			self.position.x = -89
+		elif self.position.x > 167:
+			self.position.x = 167
 	move_and_slide()
 
 
@@ -56,12 +64,30 @@ func _set_hop_progress(p: float):
 	shadow.scale = Vector2.ONE * (1.0 - 0.3 * arc)
 
 
+func set_log_speed(Logspeed):
+	log_speed = Logspeed
+
+
+func Die():
+	get_tree().quit()
+
+
+func enter_log():
+	log_count += 1
+
+
+func exit_log():
+	log_count -= 1
 
 
 
-func _on_static_body_2d_2_on_log_left() -> void:
-	on_log_left = true
+func _on_killzone_on_water() -> void:
+	on_water = true
 
 
-func _on_static_body_2d_2_not_on_log_left() -> void:
-	on_log_left = false
+func _on_killzone_off_water() -> void:
+	on_water = false
+
+func checkdeath():
+	if on_water and log_count < 1 and !hopping:
+		Die()
