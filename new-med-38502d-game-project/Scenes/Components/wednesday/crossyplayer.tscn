@@ -2,7 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://b8vnc0s72nnn0" path="res://Assets/Sprites/Wednesday/chrisSpritesheet.png" id="1_d7rgc"]
 [ext_resource type="Script" uid="uid://dievbo5vakleu" path="res://Scripts/WEDNESDAY/crossyplayer.gd" id="1_lmdyb"]
+[ext_resource type="Texture2D" uid="uid://oubsh5ty434d" path="res://Assets/Sprites/Wednesday/DieCar1.png" id="2_qoti2"]
+[ext_resource type="Texture2D" uid="uid://cuf7ywlwxfglh" path="res://Assets/Sprites/Wednesday/CarDie2.png" id="3_676dt"]
 [ext_resource type="Texture2D" uid="uid://0fjubefoeqjv" path="res://Assets/Sprites/Wednesday/shadow.png" id="3_r65f5"]
+[ext_resource type="Texture2D" uid="uid://dnslejpkn1c8m" path="res://Assets/Sprites/Wednesday/CarDie3.png" id="4_odbek"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r65f5"]
 radius = 3.0
@@ -74,6 +77,20 @@ region = Rect2(64, 64, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5hyx6"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qoti2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_676dt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_odbek")
+}],
+"loop": 0,
+"name": &"CarDie",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lmdyb")
@@ -164,6 +181,9 @@ position = Vector2(0, -6)
 collision_layer = 7
 collision_mask = 7
 script = ExtResource("1_lmdyb")
+tile_size = null
+hop_time = null
+hop_height = null
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1493737534]
 
@@ -180,8 +200,10 @@ z_index = 1
 position = Vector2(0, -1)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_5hyx6")
-animation = &"right walk"
+animation = &"CarDie"
 autoplay = "baseidle"
+frame = 2
+frame_progress = 1.0
 
 [node name="Shadow" type="Sprite2D" parent="." unique_id=755129008]
 position = Vector2(0, 5)

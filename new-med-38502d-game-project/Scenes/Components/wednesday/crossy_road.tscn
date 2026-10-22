@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://dwub2hx07p0ws"]
+[gd_scene format=4 uid="uid://cgefj1bs2gq5a"]
 
 [ext_resource type="Texture2D" uid="uid://b0nts54bi5nrg" path="res://Assets/Sprites/Wednesday/TILESET.png" id="1_4fxd8"]
 [ext_resource type="PackedScene" uid="uid://cun0m0l5fq5p6" path="res://Scenes/Components/wednesday/crossyplayer.tscn" id="2_gn75n"]

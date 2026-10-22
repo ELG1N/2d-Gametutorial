@@ -12,7 +12,7 @@ var log_speed: float = 0
 @export var tile_size := 16
 @export var hop_time := 0.15
 @export var hop_height := 6.0
-
+var death: int = 0
 @onready var sprite: AnimatedSprite2D = $Sprite3
 @onready var shadow: Sprite2D = $Shadow
 @onready var ray_cast: RayCast2D = $RayCast2D
@@ -69,7 +69,7 @@ func set_log_speed(Logspeed):
 
 
 func Die():
-	get_tree().quit()
+
 
 
 func enter_log():
@@ -90,4 +90,5 @@ func _on_killzone_off_water() -> void:
 
 func checkdeath():
 	if on_water and log_count < 1 and !hopping:
+		death = 1
 		Die()
