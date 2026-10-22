@@ -1,6 +1,6 @@
 extends Node2D
 @export var log: PackedScene
-var spawn_interval: = randf_range(2, 4.5)
+var spawn_interval: = randf_range(2, 3.5)
 @export var log_speed: = 0
 @export var left: bool = false
 

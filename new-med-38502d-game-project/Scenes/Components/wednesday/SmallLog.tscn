@@ -4,14 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://c8p4tgr4iqhdk" path="res://Assets/Sprites/Wednesday/smallLob.png" id="1_eotix"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nygc3"]
-size = Vector2(33, 12)
+size = Vector2(27.358845, 12)
 
 [node name="Area2D" type="Area2D" unique_id=688947434]
 scale = Vector2(0.855, 0.855)
 script = ExtResource("1_3sr0v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=861698204]
-position = Vector2(-0.5, -2)
+position = Vector2(-1.1695908, -2)
 scale = Vector2(0.855, 0.855)
 shape = SubResource("RectangleShape2D_nygc3")
 

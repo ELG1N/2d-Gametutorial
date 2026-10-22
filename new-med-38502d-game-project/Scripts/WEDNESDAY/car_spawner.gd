@@ -1,6 +1,6 @@
 extends Node2D
 @export var car: PackedScene
-var spawn_interval: = randf_range(1, 2.5)
+var spawn_interval: = randf_range(1.55, 3.5)
 
 
 func _ready():

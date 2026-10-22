@@ -6,7 +6,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r65f5"]
 radius = 3.0
-height = 8.0
+height = 12.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_or7lf"]
 radius = 3.0
@@ -168,7 +168,7 @@ script = ExtResource("1_lmdyb")
 [node name="Area2D" type="Area2D" parent="." unique_id=1493737534]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=973098915]
-position = Vector2(0, 3)
+position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_r65f5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=121642751]
