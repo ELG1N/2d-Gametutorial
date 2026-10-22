@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://tkx88glu8s4"]
+
+[ext_resource type="Script" uid="uid://cspfje3emh5af" path="res://Scripts/WEDNESDAY/logspawner.gd" id="1_ekl3f"]
+[ext_resource type="PackedScene" uid="uid://i2asjxk05qtg" path="res://Scenes/Components/wednesday/SmallLog.tscn" id="2_aa8hq"]
+
+[node name="logspawner" type="Node2D" unique_id=1339179084]
+script = ExtResource("1_ekl3f")
+log = ExtResource("2_aa8hq")
+
+[node name="Timer" type="Timer" parent="." unique_id=1155807493]
+wait_time = 1.9499999999999997
+autostart = true
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=2033290781]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

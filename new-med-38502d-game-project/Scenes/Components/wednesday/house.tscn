@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://5c1u5a7npu7g"]
+
+[ext_resource type="Texture2D" uid="uid://8s41dxpd6hof" path="res://Assets/Sprites/Wednesday/HOUSE.png" id="1_wy3ht"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wy3ht"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lqyn0"]
+size = Vector2(35, 28)
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=1977495973]
+disable_mode = 1
+collision_layer = 5
+collision_mask = 5
+physics_material_override = SubResource("PhysicsMaterial_wy3ht")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1586633446]
+position = Vector2(8, 3)
+texture = ExtResource("1_wy3ht")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2069308796]
+position = Vector2(-0.5, -3)
+shape = SubResource("RectangleShape2D_lqyn0")

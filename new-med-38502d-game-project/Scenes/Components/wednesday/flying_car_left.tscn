@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://uy6pasygjnbt"]
+
+[ext_resource type="Script" uid="uid://dv86wy6urc3m8" path="res://Scripts/WEDNESDAY/flying_car_left.gd" id="1_bgiaa"]
+[ext_resource type="Texture2D" uid="uid://dkxu564pq36uk" path="res://Assets/Sprites/Wednesday/carspritesheet.png" id="1_kv8xe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lqyn0"]
+size = Vector2(32, 8)
+
+[node name="FlyingCarLeft" type="Area2D" unique_id=784046207]
+script = ExtResource("1_bgiaa")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1804942059]
+texture = ExtResource("1_kv8xe")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(96, 7, 32, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=223846085]
+shape = SubResource("RectangleShape2D_lqyn0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

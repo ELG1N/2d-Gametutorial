@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://f1rcqhwhbovn"]
+
+[ext_resource type="Script" uid="uid://cbogwpkgjliqh" path="res://Scripts/WEDNESDAY/car_spawner.gd" id="1_y1vw8"]
+[ext_resource type="PackedScene" uid="uid://cekn02v3b41qo" path="res://Scenes/Components/wednesday/normal_car_left.tscn" id="2_j0fxx"]
+
+[node name="CarSpawnerLeft" type="Node2D" unique_id=1867599281]
+script = ExtResource("1_y1vw8")
+car = ExtResource("2_j0fxx")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1761485510]
+
+[node name="Timer" type="Timer" parent="." unique_id=605469477]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
