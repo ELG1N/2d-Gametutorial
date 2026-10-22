@@ -9,6 +9,7 @@ var on_log_right: bool = false
 var on_water: bool = false
 var log_count: int = 0
 var log_speed: float = 0
+var death: int = 0
 @export var tile_size := 16
 @export var hop_time := 0.15
 @export var hop_height := 6.0
@@ -25,6 +26,7 @@ func _physics_process(delta: float) -> void:
 		position.x += log_speed * delta
 	if Input.is_action_just_pressed("Jump"):
 		hop()
+		$AudioStreamPlayer2D.play()
 	if Input.is_action_pressed("LEFT"):
 		$Sprite3.play("left walk")
 		velocity.x =  (-SPEED)
@@ -69,8 +71,20 @@ func set_log_speed(Logspeed):
 
 
 func Die():
-	get_tree().quit()
-
+	if death == 1:
+		set_process(false)
+		set_physics_process(false)
+		$Shadow.hide()
+		$Sprite3.play("WaterDie")
+		await get_tree().create_timer(5).timeout
+		get_tree().quit()
+	elif death == 2:
+		set_process(false)
+		set_physics_process(false)
+		$Shadow.hide()
+		#$Sprite3.play("WaterDie")
+		await get_tree().create_timer(5).timeout
+		get_tree().quit()
 
 func enter_log():
 	log_count += 1
@@ -90,4 +104,5 @@ func _on_killzone_off_water() -> void:
 
 func checkdeath():
 	if on_water and log_count < 1 and !hopping:
+		death = 1
 		Die()
