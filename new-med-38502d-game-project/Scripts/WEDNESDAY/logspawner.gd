@@ -6,7 +6,7 @@ var spawn_interval: = randf_range(2, 4.5)
 
 
 
-func _process(delta: float) -> void:
+func _ready():
 		$Timer.wait_time = spawn_interval
 
 func spawn_log() -> void:

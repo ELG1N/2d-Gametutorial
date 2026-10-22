@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://i2asjxk05qtg"]
 
-[ext_resource type="Script" uid="uid://hekp0w61xhdk" path="res://Scenes/Components/wednesday/small_log.gd" id="1_3sr0v"]
+[ext_resource type="Script" uid="uid://hekp0w61xhdk" path="res://Scripts/WEDNESDAY/small_log.gd" id="1_3sr0v"]
 [ext_resource type="Texture2D" uid="uid://c8p4tgr4iqhdk" path="res://Assets/Sprites/Wednesday/smallLob.png" id="1_eotix"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nygc3"]
