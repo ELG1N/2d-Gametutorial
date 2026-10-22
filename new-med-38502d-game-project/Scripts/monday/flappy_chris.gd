@@ -31,15 +31,9 @@ func _on_kill_body_entered(body: Node2D) -> void:
 	Die()
 
 
-#func _on_area_2d_area_entered(area: Area2D) -> void:
-#	if self.position.x < 1061:
-#		Die()
-#	elif self.position.x > 1062:
-#		get_tree().change_scene_to_file("res://Scenes/Components/Monday/flappywin.tscn")
-
 
 func _on_win_body_entered(body: Node2D) -> void:
-	get_tree().change_scene_to_file("res://Scenes/Components/Monday/flappywin.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Games/Tuesday.tscn")
 
 
 func _on_grandpa_die() -> void:
