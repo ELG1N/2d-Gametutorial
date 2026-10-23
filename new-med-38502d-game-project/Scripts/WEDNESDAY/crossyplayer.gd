@@ -10,9 +10,9 @@ var on_water: bool = false
 var log_count: int = 0
 var log_speed: float = 0
 var death: int = 0
-@export var tile_size := 16
-@export var hop_time := 0.15
-@export var hop_height := 6.0
+@export var tile_size : int = 16
+@export var hop_time : float = 0.15
+@export var hop_height : float = 6.0
 
 @onready var sprite: AnimatedSprite2D = $Sprite3
 @onready var shadow: Sprite2D = $Shadow
@@ -61,7 +61,7 @@ func hop():
 		hopping = false
 
 func _set_hop_progress(p: float):
-	var arc := sin(p * PI)        
+	var arc :float = sin(p * PI)        
 	sprite.position.y = -arc * hop_height
 	$Sprite3.play("baseidle")
 	shadow.scale = Vector2.ONE * (1.0 - 0.3 * arc)
