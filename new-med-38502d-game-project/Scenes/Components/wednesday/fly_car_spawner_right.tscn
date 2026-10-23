@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bp7cas3h5bcxd"]
+
+[ext_resource type="Script" uid="uid://cbogwpkgjliqh" path="res://Scripts/WEDNESDAY/car_spawner.gd" id="1_h4kpy"]
+[ext_resource type="PackedScene" uid="uid://bn0vyadk8jaq1" path="res://Scenes/Components/wednesday/Flying_car_right.tscn" id="2_nd20g"]
+
+[node name="FlyCarSpawnerRight" type="Node2D" unique_id=1867599281]
+z_index = -1
+script = ExtResource("1_h4kpy")
+car = ExtResource("2_nd20g")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1761485510]
+
+[node name="Timer" type="Timer" parent="." unique_id=605469477]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

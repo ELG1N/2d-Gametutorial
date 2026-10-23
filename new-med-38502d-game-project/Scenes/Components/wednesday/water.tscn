@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://crt305mmkudnl"]
+
+[ext_resource type="Texture2D" uid="uid://cmb8ji1d04o1l" path="res://Assets/Sprites/Wednesday/water1.png" id="1_lo3a4"]
+[ext_resource type="Texture2D" uid="uid://bl47o7f4px46o" path="res://Assets/Sprites/Wednesday/water2.png" id="2_klg0p"]
+[ext_resource type="Texture2D" uid="uid://c71mwc4c5ivvw" path="res://Assets/Sprites/Wednesday/water3.png" id="3_8mrp2"]
+[ext_resource type="Texture2D" uid="uid://dcna5tgy0w1v8" path="res://Assets/Sprites/Wednesday/water4.png" id="4_s5wk5"]
+[ext_resource type="Texture2D" uid="uid://cb410ccpe4um6" path="res://Assets/Sprites/Wednesday/water5.png" id="5_nwvwm"]
+[ext_resource type="Texture2D" uid="uid://vufrltdt7hm2" path="res://Assets/Sprites/Wednesday/water6.png" id="6_y80rl"]
+[ext_resource type="Texture2D" uid="uid://ckvrx0rpm8sgq" path="res://Assets/Sprites/Wednesday/water7.png" id="7_ica3j"]
+[ext_resource type="Texture2D" uid="uid://dtxqkj0v42n3w" path="res://Assets/Sprites/Wednesday/water8.png" id="8_x8pe1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lqyn0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_lo3a4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_klg0p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8mrp2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_s5wk5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nwvwm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_y80rl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ica3j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_x8pe1")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="Node2D" type="Node2D" unique_id=106013237]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1788013990]
+sprite_frames = SubResource("SpriteFrames_lqyn0")
+autoplay = "default"
+frame_progress = 0.2729432

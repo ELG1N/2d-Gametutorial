@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cccpdl8omifpr"]
+
+[ext_resource type="Script" uid="uid://cq4p1bej6n64q" path="res://Scripts/monday/itsflyingcar.gd" id="1_aw3fi"]
+[ext_resource type="Texture2D" uid="uid://dq0eaytiinmot" path="res://Assets/Sprites/Monday/carfly1.png" id="2_rxgwf"]
+[ext_resource type="Texture2D" uid="uid://b6fvhclax62y1" path="res://Assets/Sprites/Monday/carfly2.png" id="3_wvukl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nygc3"]
+size = Vector2(32, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lc8yl"]
+size = Vector2(30, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lqyn0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rxgwf")
+}, {
+"duration": 0.7,
+"texture": ExtResource("3_wvukl")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="itsflyingcar" type="StaticBody2D" unique_id=239074372]
+script = ExtResource("1_aw3fi")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1223714710]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1649473803]
+shape = SubResource("RectangleShape2D_nygc3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1243199205]
+shape = SubResource("RectangleShape2D_lc8yl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=604805999]
+sprite_frames = SubResource("SpriteFrames_lqyn0")
+autoplay = "default"
+frame_progress = 0.28589568
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

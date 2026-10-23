@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ctrml1tajoifv"]
+
+[ext_resource type="Script" uid="uid://cqvyjhkypw4mu" path="res://Scripts/WEDNESDAY/normal_car_right.gd" id="1_0c5ia"]
+[ext_resource type="Texture2D" uid="uid://dkxu564pq36uk" path="res://Assets/Sprites/Wednesday/carspritesheet.png" id="1_vw6ik"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lqyn0"]
+size = Vector2(32, 8)
+
+[node name="NormalCarRight" type="Area2D" unique_id=784046207]
+z_index = 3
+script = ExtResource("1_0c5ia")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1804942059]
+texture = ExtResource("1_vw6ik")
+region_enabled = true
+region_rect = Rect2(32, 8, 32, 13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=223846085]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_lqyn0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

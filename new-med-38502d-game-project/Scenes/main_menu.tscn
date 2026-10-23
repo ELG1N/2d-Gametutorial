@@ -1,18 +1,322 @@
 [gd_scene format=3 uid="uid://clm8e1qtynot6"]
 
+[ext_resource type="Texture2D" uid="uid://df1bi6dp6reiu" path="res://Assets/Sprites/Wednesday/Play1.png" id="1_48xlc"]
+[ext_resource type="Script" uid="uid://bx3xexj60aahs" path="res://Scripts/MainMenuScript.gd" id="1_ujyyl"]
+[ext_resource type="Texture2D" uid="uid://bpx1mpqaijqqv" path="res://Assets/Sprites/Wednesday/Play2.png" id="2_1ehe0"]
+[ext_resource type="Texture2D" uid="uid://78d0hmimhq1f" path="res://Assets/Sprites/Wednesday/Exit1.png" id="3_opfnp"]
+[ext_resource type="Texture2D" uid="uid://d0exqq4gtaad1" path="res://Assets/Sprites/Wednesday/Exit2.png" id="4_cp0ys"]
+[ext_resource type="Texture2D" uid="uid://brlr3nxt07mqo" path="res://Assets/Sprites/Wednesday/Credits.png" id="5_yhxw7"]
+[ext_resource type="Texture2D" uid="uid://bne6t14yyx0mm" path="res://Assets/Sprites/Wednesday/Credits2.png" id="6_trj04"]
+[ext_resource type="Texture2D" uid="uid://ddn15gkmesdby" path="res://Assets/Sprites/Wednesday/MenuSprite.png" id="7_wyh8j"]
+[ext_resource type="Texture2D" uid="uid://1wdxefiibg6y" path="res://Assets/Sprites/Tuesday/large_dialogue_box.png" id="8_4nkqq"]
+[ext_resource type="Texture2D" uid="uid://oubsh5ty434d" path="res://Assets/Sprites/Wednesday/DieCar1.png" id="8_ujyyl"]
+[ext_resource type="Texture2D" uid="uid://cuf7ywlwxfglh" path="res://Assets/Sprites/Wednesday/CarDie2.png" id="9_mkpwh"]
+[ext_resource type="Texture2D" uid="uid://dnslejpkn1c8m" path="res://Assets/Sprites/Wednesday/CarDie3.png" id="10_4nkqq"]
+[ext_resource type="Texture2D" uid="uid://c0boipv7r1nlq" path="res://Assets/Sprites/Wednesday/waterDie1.png" id="11_ehtkc"]
+[ext_resource type="Texture2D" uid="uid://cw52bcry787ny" path="res://Assets/Sprites/Wednesday/waterDie2.png" id="12_6dk6o"]
+[ext_resource type="Texture2D" uid="uid://c3byfuc6u8kdu" path="res://Assets/Sprites/Wednesday/waterDie3.png" id="13_jr6u5"]
+[ext_resource type="Texture2D" uid="uid://dw5n0gix1urb2" path="res://Assets/Sprites/Wednesday/waterDie4.png" id="14_6m47u"]
+[ext_resource type="Texture2D" uid="uid://dh65iof6ppwj5" path="res://Assets/Sprites/Wednesday/waterDie5.png" id="15_84iac"]
+[ext_resource type="Texture2D" uid="uid://1ixc2be515b1" path="res://Assets/Sprites/Wednesday/waterDie6.png" id="16_5n0dv"]
+[ext_resource type="Texture2D" uid="uid://b8vnc0s72nnn0" path="res://Assets/Sprites/Wednesday/chrisSpritesheet.png" id="17_ne6ao"]
+[ext_resource type="Texture2D" uid="uid://d0b3aak3mn67q" path="res://Assets/Sprites/Tuesday/medium_dialogue_box.png" id="19_mkpwh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nygc3"]
+font_size = 8
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmdyb"]
+atlas = ExtResource("17_ne6ao")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r65f5"]
+atlas = ExtResource("17_ne6ao")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_toipq"]
+atlas = ExtResource("17_ne6ao")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_or7lf"]
+atlas = ExtResource("17_ne6ao")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qoti2"]
+atlas = ExtResource("17_ne6ao")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_676dt"]
+atlas = ExtResource("17_ne6ao")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odbek"]
+atlas = ExtResource("17_ne6ao")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0yosy"]
+atlas = ExtResource("17_ne6ao")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsxtw"]
+atlas = ExtResource("17_ne6ao")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvrtt"]
+atlas = ExtResource("17_ne6ao")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36t6c"]
+atlas = ExtResource("17_ne6ao")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojtw2"]
+atlas = ExtResource("17_ne6ao")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efmhx"]
+atlas = ExtResource("17_ne6ao")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_antr7"]
+atlas = ExtResource("17_ne6ao")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bpuo"]
+atlas = ExtResource("17_ne6ao")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tt8ml"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_ujyyl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_mkpwh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_4nkqq")
+}],
+"loop": 0,
+"name": &"CarDie",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_ehtkc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_6dk6o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_jr6u5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_6m47u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_84iac")
+}, {
+"duration": 6.0,
+"texture": ExtResource("16_5n0dv")
+}],
+"loop": 0,
+"name": &"WaterDie",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmdyb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r65f5")
+}],
+"loop": 1,
+"name": &"baseidle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_toipq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_or7lf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qoti2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_toipq")
+}],
+"loop": 0,
+"name": &"front walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_676dt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odbek")
+}],
+"loop": 1,
+"name": &"left idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0yosy")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_lsxtw")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_uvrtt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0yosy")
+}],
+"loop": 1,
+"name": &"left walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36t6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ojtw2")
+}],
+"loop": 1,
+"name": &"right idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efmhx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efmhx")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_antr7")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_1bpuo")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_antr7")
+}],
+"loop": 1,
+"name": &"right walk",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lqyn0"]
+font_size = 4
+font_color = Color(0, 0, 0, 1)
+
 [node name="Main menu" type="Node2D" unique_id=822084577]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1421116533]
+script = ExtResource("1_ujyyl")
 
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=139156749]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Under Construction
+[node name="Play" type="TextureButton" parent="CanvasLayer" unique_id=623912598]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -20.0
+offset_right = 64.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("1_48xlc")
+texture_pressed = ExtResource("1_48xlc")
+texture_hover = ExtResource("2_1ehe0")
+
+[node name="Exit" type="TextureButton" parent="CanvasLayer" unique_id=125459153]
+offset_left = 128.0
+offset_top = 132.0
+offset_right = 256.0
+offset_bottom = 172.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("3_opfnp")
+texture_pressed = ExtResource("3_opfnp")
+texture_hover = ExtResource("4_cp0ys")
+
+[node name="Credits" type="TextureButton" parent="CanvasLayer" unique_id=1084384190]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -40.0
+offset_right = 64.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("5_yhxw7")
+texture_pressed = ExtResource("5_yhxw7")
+texture_hover = ExtResource("6_trj04")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=1882763173]
+position = Vector2(191, 70)
+texture = ExtResource("8_4nkqq")
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=646905427]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -51.5
+offset_right = 48.0
+offset_bottom = -24.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Chris's September 1st 
+       Fever dream"
+label_settings = SubResource("LabelSettings_nygc3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1869687876]
+position = Vector2(193, 106)
+texture = ExtResource("7_wyh8j")
+
+[node name="Sprite3" type="AnimatedSprite2D" parent="." unique_id=1996992066]
+z_index = 1
+position = Vector2(116, 191.99998)
+scale = Vector2(0.935, 0.935)
+sprite_frames = SubResource("SpriteFrames_tt8ml")
+animation = &"right walk"
+autoplay = "right walk"
+frame_progress = 0.27131876
+
+[node name="Credits2" type="CanvasLayer" parent="Sprite3" unique_id=265091277]
+unique_name_in_owner = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite3/Credits2" unique_id=147751109]
+position = Vector2(322, 179)
+scale = Vector2(1.8750001, 1.8750001)
+texture = ExtResource("19_mkpwh")
+
+[node name="Label" type="Label" parent="Sprite3/Credits2" unique_id=1735961271]
+offset_left = 270.0
+offset_top = 157.0
+offset_right = 373.0
+offset_bottom = 201.0
+text = "Authors: James Huston, Maksym Makarov
+Music by: Chajamakesmusic
+Sounds effects by: jalastram
+External artwork by: OpenClipart
 "
-
-[node name="Button" type="Button" parent="CanvasLayer" unique_id=1959513969]
-offset_left = 23.0
-offset_top = 117.0
-offset_right = 107.0
-offset_bottom = 148.0
-text = "Exit game"
+label_settings = SubResource("LabelSettings_lqyn0")
