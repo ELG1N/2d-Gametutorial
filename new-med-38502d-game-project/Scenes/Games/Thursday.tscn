@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c60ti5ryac1tx" path="res://Scenes/Components/Thursday/power_point_enemy.tscn" id="7_y843o"]
 [ext_resource type="Texture2D" uid="uid://c5e07xxcs40f1" path="res://Assets/Sprites/Thursday/rootbeer.png" id="9_uncaa"]
 [ext_resource type="Texture2D" uid="uid://wqtubk5sdqhd" path="res://Assets/Sprites/Thursday/cocacola.png" id="10_0j7ff"]
+[ext_resource type="AudioStream" uid="uid://co6f0q5u8rvpm" path="res://Assets/Data/Thursday/beat.wav" id="11_0j7ff"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_twfsx"]
 radius = 48.6621
@@ -226,6 +227,11 @@ shape = SubResource("CircleShape2D_16fuj")
 
 [node name="Sprite2D" type="Sprite2D" parent="InvisibleEvents/Health2/CollisionShape2D" unique_id=2075050064]
 texture = ExtResource("10_0j7ff")
+
+[node name="BackGroundMusic" type="AudioStreamPlayer" parent="." unique_id=143204506]
+stream = ExtResource("11_0j7ff")
+volume_db = -2.13
+autoplay = true
 
 [connection signal="dead" from="Player" to="." method="_on_player_dead"]
 [connection signal="dialogue_end" from="Player/SingleDialogueView" to="." method="_on_single_dialogue_view_dialogue_end"]

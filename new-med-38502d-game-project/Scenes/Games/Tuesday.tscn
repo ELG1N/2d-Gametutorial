@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cd33qepry5vyy" path="res://Scenes/Components/Tuesday/battery_charge.tscn" id="4_ygj38"]
 [ext_resource type="Texture2D" uid="uid://ci1tjgfub46g2" path="res://Assets/Sprites/Tuesday/manhole_cover.png" id="5_dkqta"]
 [ext_resource type="TileSet" uid="uid://hkytwv0f8jx" path="res://Scenes/Components/Tuesday/UsingTileSet_NOTCORR.tres" id="8_0gx61"]
+[ext_resource type="Texture2D" uid="uid://hu3f5y6bse4k" path="res://Assets/Sprites/Tuesday/skelly.png" id="8_8yqwb"]
 
 [sub_resource type="Gradient" id="Gradient_wwglj"]
 offsets = PackedFloat32Array(0.14179105, 0.99626863, 1)
@@ -269,6 +270,14 @@ tile_set = ExtResource("8_0gx61")
 position = Vector2(28, -116)
 tile_map_data = PackedByteArray("AACr/xoAAQAEABEAAACv/xkAAQAFABEAAAA=")
 tile_set = ExtResource("8_0gx61")
+
+[node name="Sprite2D" type="Sprite2D" parent="World/Layer7" unique_id=1360965557]
+position = Vector2(-997, -57)
+texture = ExtResource("8_8yqwb")
+
+[node name="Sprite2D2" type="Sprite2D" parent="World/Layer7" unique_id=1472783887]
+position = Vector2(2141, 863)
+texture = ExtResource("8_8yqwb")
 
 [node name="Collisions" type="TileMapLayer" parent="World" unique_id=844469367]
 top_level = true
