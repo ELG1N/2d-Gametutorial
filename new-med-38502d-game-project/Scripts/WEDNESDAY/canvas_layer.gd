@@ -11,7 +11,8 @@ func input(event: InputEvent) -> void:
 		pause()
 	
 func menu():
-	get_tree().change_scene_to_file("res://Scenes/Components/main_menu.tscn")
+	pause()
+	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 
 func pause():
 	get_tree().paused = !get_tree().paused
