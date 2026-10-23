@@ -81,6 +81,7 @@ func _on_ending_area_entered(area: Area2D) -> void:
 	single_dialogue_state = SingleDialogueState.LOUD
 	%SingleDialogueView.show_and_start_timer(DIALOGUE["finish"])
 	await %SingleDialogueView.dialogue_end
+	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 
 
 var h1_received = false

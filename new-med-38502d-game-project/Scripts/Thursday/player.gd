@@ -17,7 +17,7 @@ signal dead
 ##
 ## Setting Player Walk Speed
 ##
-const SPEED: float = 4500
+const SPEED: float = 8000
 #endregion
 
 #region Global Variables
