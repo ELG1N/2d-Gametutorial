@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cp5vhsg54dmt5"
-path="res://.godot/imported/gdquest_logo.svg-3d69df92bc1269a9cd56d21bfb4e3dfd.ctex"
+uid="uid://cw52bcry787ny"
+path="res://.godot/imported/waterDie2.png-9ef70e854200b4fd7d72e79d4a2d9e92.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/GDQuest_GDScript_formatter/images/gdquest_logo.svg"
-dest_files=["res://.godot/imported/gdquest_logo.svg-3d69df92bc1269a9cd56d21bfb4e3dfd.ctex"]
+source_file="res://Assets/Sprites/Wednesday/waterDie2.png"
+dest_files=["res://.godot/imported/waterDie2.png-9ef70e854200b4fd7d72e79d4a2d9e92.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=2.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

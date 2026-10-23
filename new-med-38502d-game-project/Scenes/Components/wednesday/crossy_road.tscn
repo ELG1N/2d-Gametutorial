@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bnvvlpnrh0cgj" path="res://Scenes/Components/wednesday/car_spawner_right.tscn" id="10_fw2hh"]
 [ext_resource type="PackedScene" uid="uid://f1rcqhwhbovn" path="res://Scenes/Components/wednesday/car_spawner_left.tscn" id="11_fw2hh"]
 [ext_resource type="PackedScene" uid="uid://bvmnr7tq0xlea" path="res://Scenes/Components/wednesday/fly_car_spawner_left.tscn" id="11_i0n4e"]
+[ext_resource type="AudioStream" uid="uid://qooneetv7ymi" path="res://Assets/Sounds/Wednesday/town.wav" id="14_hu65h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rtrrk"]
 texture = ExtResource("1_4fxd8")
@@ -72,7 +73,7 @@ tile_map_data = PackedByteArray("AAD/////AAABAAAAAAAAAP//AAABAAAAAAABAP//AAABAAA
 tile_set = SubResource("TileSet_lqyn0")
 
 [node name="It\'sFenceGuys" type="TileMapLayer" parent="." unique_id=778389328]
-tile_map_data = PackedByteArray("AAD7//j/AAAAAAAAAAD8//j/AAABAAIAAAD9//j/AAABAAIAAAD+//j/AAABAAIAAAD///j/AAABAAIAAAAAAPj/AAABAAIAAAABAPj/AAABAAIAAAADAPj/AAABAAIAAAAEAPj/AAABAAIAAAAFAPj/AAABAAIAAAAGAPj/AAABAAIAAAAHAPj/AAABAAIAAAAIAPj/AAABAAIAAAAJAPj/AAABAAAAAAD5/9T/AAAAAAAAAAD6/9T/AAABAAIAAAD7/9T/AAABAAIAAAD8/9T/AAABAAIAAAD9/9T/AAADAAMAAAD//9T/AAAAAAAAAAAAANT/AAABAAIAAAABANT/AAABAAIAAAACANT/AAABAAIAAAADANT/AAABAAIAAAAEANT/AAADAAMAAAAGANT/AAAAAAAAAAAHANT/AAABAAIAAAAIANT/AAABAAIAAAAJANT/AAABAAIAAAAKANT/AAABAAIAAAALANT/AAABAAIAAAAMANP/AAACAAIAAAAMANT/AAADAAMAAAD9/9P/AAACAAIAAAAEANP/AAACAAIAAAD9/9L/AAACAAIAAAAEANL/AAACAAIAAAAMANL/AAACAAIAAAD+/wUAAAAAAAAAAAD//wUAAAABAAIAAAAAAAUAAAADAAMAAAAAAAQAAAACAAEAAAAAAAMAAAACAAEAAAA=")
+tile_map_data = PackedByteArray("AAD7//j/AAAAAAAAAAD8//j/AAABAAIAAAD9//j/AAABAAIAAAD+//j/AAABAAIAAAD///j/AAABAAIAAAAAAPj/AAABAAIAAAABAPj/AAABAAIAAAADAPj/AAABAAIAAAAEAPj/AAABAAIAAAAFAPj/AAABAAIAAAAGAPj/AAABAAIAAAAHAPj/AAABAAIAAAAIAPj/AAABAAIAAAAJAPj/AAABAAAAAAD5/9T/AAAAAAAAAAD6/9T/AAABAAIAAAD7/9T/AAABAAIAAAD8/9T/AAABAAIAAAD9/9T/AAADAAMAAAD//9T/AAAAAAAAAAAAANT/AAABAAIAAAABANT/AAABAAIAAAACANT/AAABAAIAAAADANT/AAABAAIAAAAEANT/AAADAAMAAAAGANT/AAAAAAAAAAAHANT/AAABAAIAAAAIANT/AAABAAIAAAAJANT/AAABAAIAAAAKANT/AAABAAIAAAALANT/AAABAAIAAAAMANP/AAACAAIAAAAMANT/AAADAAMAAAD9/9P/AAACAAIAAAAEANP/AAACAAIAAAD9/9L/AAACAAIAAAAEANL/AAACAAIAAAAMANL/AAACAAIAAAD+/wUAAAAAAAAAAAD//wUAAAABAAIAAAAAAAUAAAADAAMAAAAAAAQAAAACAAEAAAAAAAMAAAACAAEAAAD5/8r/AAABAAIAAAD6/8r/AAABAAIAAAD7/8r/AAABAAIAAAD8/8r/AAABAAIAAAD9/8r/AAABAAIAAAD+/8r/AAABAAIAAAD//8r/AAABAAAAAAADAMr/AAAAAAAAAAAEAMr/AAABAAIAAAAFAMr/AAABAAIAAAAGAMr/AAABAAIAAAAHAMr/AAABAAIAAAAIAMr/AAABAAIAAAAJAMr/AAABAAIAAAAKAMr/AAABAAIAAAALAMr/AAABAAIAAAAMAMr/AAABAAIAAAANAMr/AAABAAAAAAD3/8r/AAAAAAAAAAD4/8r/AAABAAIAAAA=")
 tile_set = SubResource("TileSet_lc8yl")
 
 [node name="waterRight" parent="." unique_id=106013237 instance=ExtResource("3_gn75n")]
@@ -100,13 +101,14 @@ scale = Vector2(2.725, 1)
 position = Vector2(-8, 72)
 
 [node name="StaticBody2D2" parent="." unique_id=100593672 instance=ExtResource("5_2alrx")]
-position = Vector2(25, -860)
+position = Vector2(25, -865)
+scale = Vector2(1.485, 1.485)
 
 [node name="Area2D" type="Area2D" parent="StaticBody2D2" unique_id=1046277526]
 script = ExtResource("5_xqjne")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2/Area2D" unique_id=1351444188]
-position = Vector2(0, 12.5)
+position = Vector2(-0.73529404, 13.235294)
 shape = SubResource("RectangleShape2D_nygc3")
 
 [node name="spawnLog" type="Marker2D" parent="." unique_id=1397542594]
@@ -230,6 +232,10 @@ metadata/_edit_group_ = true
 position = Vector2(268, -762)
 log_speed = 35
 left = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=834714289]
+stream = ExtResource("14_hu65h")
+autoplay = true
 
 [connection signal="body_entered" from="StaticBody2D2/Area2D" to="StaticBody2D2/Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="killzone" to="killzone" method="_on_body_entered"]

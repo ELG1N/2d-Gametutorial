@@ -50,7 +50,7 @@ static func open_and_read_file(path: String) -> String:
 ## 	Will fail/pause the program in debug mode if the string data cannot be
 ##  parsed to JSON: "JSON is formmatted incorrecly or is null"
 ##
-static func convert_string_to_json(dialogue_file_content: String) -> Dictionary:
+static func parse_data_from_json(dialogue_file_content: String) -> Dictionary:
 	var json = JSON.new()
 	var parse_json_result: Error = json.parse(dialogue_file_content)
 	assert(parse_json_result != null, "JSON is formatted incorrectly or is null.")
@@ -76,5 +76,5 @@ static func convert_string_to_json(dialogue_file_content: String) -> Dictionary:
 ##
 static func load_dialogue_from_path(path: String) -> Dictionary:
 	var dialogue_file_content: String = open_and_read_file(path)
-	var parsed_json: Dictionary = convert_string_to_json(dialogue_file_content)
-	return parsed_json
+	var parsed_data: Dictionary = parse_data_from_json(dialogue_file_content)
+	return parsed_data

@@ -1,4 +1,4 @@
-class_name SingleDialogueView extends DialogueView
+class_name SingleDialogueView extends Control
 ## 
 ## Author:
 ## 	James Huston
@@ -18,10 +18,56 @@ class_name SingleDialogueView extends DialogueView
 ##
 signal dialogue_end
 
+
+#region loading resources
+##
+## Dialogue box for large amounds of dialogue
+##
+const LARGE_DIALOGUE_BOX: Texture2D \
+= preload("res://Assets/Sprites/Tuesday/large_dialogue_box.png")
+
+
+##
+## Dialogue box for medium amounts of dialogue
+##
+const MEDIUM_DIALOGUE_BOX: Texture2D \
+= preload("res://Assets/Sprites/Tuesday/medium_dialogue_box.png")
+
+##
+## Dialogue Box for small amounts of dialogue
+##
+const SMALL_DIALOGUE_BOX: Texture2D \
+= preload("res://Assets/Sprites/Tuesday/small_dialogue_box.png")
+#endregion
+
+#region default values
+##
+## The default value for the text that is viewed in the dialogue box
+##
+const DEFAULT_TEXT: String = "default text"
+
 ##
 ## Default value for the wait time
 ##
-const WAIT_TIME: float = 10
+const WAIT_TIME: float = 5
+#endregion
+
+#region global variables
+##
+## Global variable for the box text
+##
+@export var box_text: String = DEFAULT_TEXT
+
+
+
+@onready var dialogue_rect: TextureRect = %DialogueBox
+
+##
+## Variable to change the size of the dialogue text box, when the game is
+## running.
+##
+@onready var dialogue_text: RichTextLabel = %DialogueText
+#endregion
 
 #region Node Functions
 ##
@@ -63,24 +109,23 @@ func _ready() -> void:
 ## Errors:
 ## 	None
 ##
-func show_and_start_timer():
+func show_and_start_timer(_box_text: String):
+	box_text = _box_text
+	update_box()
 	show()
 	%DialogueViewTimer.start()
 
 
 ##
 ## Name:
-## 	update_box
+## 	update_box_size
 ##
 ## Description:
-## 	updates information about the box when provided information about the box,
-## 	pretty much a copy of the constructure, just don't want to reinitialize
-## 	objects because from my experience in other languages that can become costly.
+## 	uses pattern matching to determine in what way to update the size of the box
+## 	and the size of the text box within it.
 ##
-## Parameters:
 ## 	_box_size: [GAME_TYPES.DialogueBoxSizeTypes] -> The size of texture to use
 ## 													when rendering the box.
-## 	_box_text: [String]
 ##
 ## Returns:
 ## 	void
@@ -88,21 +133,27 @@ func show_and_start_timer():
 ## Errors:
 ## 	None
 ##
-func update_box(_box_size: GAME_TYPES.DialogueBoxSizes, _box_text: Variant) -> void:
-	box_size = _box_size
-	if _box_text is String:
-		box_text = _box_text
-		update_display_text()
+func update_box() -> void:
+	%DialogueText.text = box_text
+	var character_count = box_text.length()
+	if character_count  <= 20:
+		update_children(Vector2(32.0, 32.0), SMALL_DIALOGUE_BOX)
+	elif character_count <= 50:
+		update_children(Vector2(64.0, 32.0), MEDIUM_DIALOGUE_BOX)
+	else:
+		update_children(Vector2(128.0, 32.0), LARGE_DIALOGUE_BOX)
 
 ##
 ## Name:
-## 	update_display_text
+## 	update_children
 ##
 ## Description:
-## 	Really simple wrapper to update the text displayed by the dialogue box.
+## 	updates some information about the children of the control node.
 ##
 ## Parameters:
-## 	_text: [String] -> The text to be displayed.
+## 	texture_size: [Vector2] -> the new size of the rect wrapping the texture
+## 							   of the dialogue box.
+## 	texture: [Texture2D] -> The new texture to use for the box.
 ##
 ## Returns:
 ## 	void
@@ -110,8 +161,10 @@ func update_box(_box_size: GAME_TYPES.DialogueBoxSizes, _box_text: Variant) -> v
 ## Errors:
 ## 	None
 ##
-func update_display_text() -> void:
-	%Text.text = box_text
+func update_children(texture_size: Vector2, new_texture: Texture2D) -> void:
+	dialogue_rect.size = texture_size
+	dialogue_rect.texture = new_texture
+	dialogue_text.size.x = texture_size.x - 8
 #endregion
 
 #region Ending Dialogue & Sending Signals
@@ -157,5 +210,8 @@ func skip_dialogue() -> void:
 ## 	None
 ##
 func _on_dialogue_view_timer_timeout() -> void:
-	skip_dialogue()
+	hide()
+	%DialogueViewTimer.stop()
+	%DialogueViewTimer.wait_time = WAIT_TIME
+	dialogue_end.emit()
 #endregion
