@@ -12,6 +12,8 @@ config_version=5
 
 config/name="NewMed38502DGameProject"
 run/main_scene="uid://clm8e1qtynot6"
+run/main_scene="uid://db1e3ev0nc4hy"
+
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 

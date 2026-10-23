@@ -297,6 +297,7 @@ func check_battery():
 			single_dialogue_state = SingleDialogueState.LOUD
 			%SingleDialogueView.show_and_start_timer(DIALOGUE["battery-level-quarter"])
 		0:
+			$BackGroundMusic.stop()
 			single_dialogue_state = SingleDialogueState.LOUD
 			%SingleDialogueView.show_and_start_timer(DIALOGUE["battery-level-empty"])
 			await %SingleDialogueView.dialogue_end
@@ -329,6 +330,7 @@ func _on_battery_drain_timer_timeout() -> void:
 	%BatteryCharge.update(battery_charge)
 
 func _on_true_exit_door_area_entered(area: Area2D) -> void:
+	$BackGroundMusic.stop()
 	%BatteryDrainTimer.stop()
 	single_dialogue_state = SingleDialogueState.LOUD
 	%SingleDialogueView.show_and_start_timer(DIALOGUE["real-exit"])
@@ -342,6 +344,7 @@ func _on_true_exit_door_area_entered(area: Area2D) -> void:
 
 func _on_sewer_spawn_area_entered(area: Area2D) -> void:
 	if map_state != MapState.SEWER_COMMITED:
+		$BackGroundMusic.play()
 		map_state = MapState.SEWER_COMMITED
 		multi_dialogue_state = MultiDialogueState.LOUD
 		%MultiDialogueView.show_and_start_timer(DIALOGUE["sewer-arrived"])
@@ -404,3 +407,7 @@ func _on_multi_dialogue_view_dialogue_end() -> void:
 	multi_dialogue_state = MultiDialogueState.SILENT
 
 #endregion
+
+
+func _on_back_ground_music_finished() -> void:
+	$BackGroundMusic.play()
