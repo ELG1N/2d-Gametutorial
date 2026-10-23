@@ -227,7 +227,7 @@ log_speed = 27
 [node name="CharacterBody2D" parent="." unique_id=1461004772 instance=ExtResource("2_gn75n")]
 unique_name_in_owner = true
 z_index = 2
-position = Vector2(28, 133)
+position = Vector2(29, 95)
 metadata/_edit_group_ = true
 
 [node name="logspawner12" parent="." unique_id=1336014548 instance=ExtResource("7_58t1u")]
