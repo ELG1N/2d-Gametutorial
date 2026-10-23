@@ -59,6 +59,9 @@ func _process(_delta: float) -> void:
 		%SingleDialogueView.skip_dialogue()
 	elif Input.is_action_pressed("esc"):
 		pass
+	if Input.is_action_pressed("esc"):
+		$MenuScreen.show()
+		get_tree().paused = true
 #endregion
 
 
