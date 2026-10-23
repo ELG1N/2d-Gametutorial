@@ -317,5 +317,6 @@ offset_bottom = 201.0
 text = "Authors: James Huston, Maksym Makarov
 Music by: Chajamakesmusic
 Sounds effects by: jalastram
+External artwork by: OpenClipart
 "
 label_settings = SubResource("LabelSettings_lqyn0")
