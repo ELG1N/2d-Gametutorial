@@ -24,7 +24,7 @@ func Die():
 	%AnimatedSprite2D.play("die")
 	%AnimatedSprite2D.stop()
 	await get_tree().create_timer(2.0).timeout
-	get_tree().change_scene_to_file("res://Scenes/Components/Monday/flappylose.tscn")
+	get_tree().reload_current_scene()
 
 
 func _on_kill_body_entered(body: Node2D) -> void:

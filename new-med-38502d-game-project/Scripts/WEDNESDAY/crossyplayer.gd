@@ -75,16 +75,18 @@ func Die():
 		set_process(false)
 		set_physics_process(false)
 		$Shadow.hide()
+		self.z_index = -1
 		$Sprite3.play("WaterDie")
 		await get_tree().create_timer(5).timeout
-		get_tree().quit()
+		get_tree().reload_current_scene()
 	elif death == 2:
 		set_process(false)
 		set_physics_process(false)
 		$Shadow.hide()
-		#$Sprite3.play("WaterDie")
-		await get_tree().create_timer(5).timeout
-		get_tree().quit()
+		$Sprite3.play("CarDie")
+		await get_tree().create_timer(0.75).timeout
+		get_tree().reload_current_scene()
+
 
 func enter_log():
 	log_count += 1

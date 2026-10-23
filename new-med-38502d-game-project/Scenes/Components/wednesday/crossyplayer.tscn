@@ -3,9 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://b8vnc0s72nnn0" path="res://Assets/Sprites/Wednesday/chrisSpritesheet.png" id="1_d7rgc"]
 [ext_resource type="Script" uid="uid://dievbo5vakleu" path="res://Scripts/WEDNESDAY/crossyplayer.gd" id="1_lmdyb"]
 [ext_resource type="Texture2D" uid="uid://c0boipv7r1nlq" path="res://Assets/Sprites/Wednesday/waterDie1.png" id="2_lsxtw"]
+[ext_resource type="Texture2D" uid="uid://oubsh5ty434d" path="res://Assets/Sprites/Wednesday/DieCar1.png" id="2_qoti2"]
+[ext_resource type="Texture2D" uid="uid://cuf7ywlwxfglh" path="res://Assets/Sprites/Wednesday/CarDie2.png" id="3_676dt"]
 [ext_resource type="Texture2D" uid="uid://0fjubefoeqjv" path="res://Assets/Sprites/Wednesday/shadow.png" id="3_r65f5"]
 [ext_resource type="Texture2D" uid="uid://cw52bcry787ny" path="res://Assets/Sprites/Wednesday/waterDie2.png" id="3_uvrtt"]
 [ext_resource type="Texture2D" uid="uid://c3byfuc6u8kdu" path="res://Assets/Sprites/Wednesday/waterDie3.png" id="4_36t6c"]
+[ext_resource type="Texture2D" uid="uid://dnslejpkn1c8m" path="res://Assets/Sprites/Wednesday/CarDie3.png" id="4_odbek"]
 [ext_resource type="AudioStream" uid="uid://bvoouqtono1pr" path="res://Assets/Sounds/Wednesday/SFX_Jump_24.wav" id="4_toipq"]
 [ext_resource type="Texture2D" uid="uid://dw5n0gix1urb2" path="res://Assets/Sprites/Wednesday/waterDie4.png" id="5_ojtw2"]
 [ext_resource type="Texture2D" uid="uid://dh65iof6ppwj5" path="res://Assets/Sprites/Wednesday/waterDie5.png" id="6_efmhx"]
@@ -81,6 +84,20 @@ region = Rect2(64, 64, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5hyx6"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qoti2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_676dt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_odbek")
+}],
+"loop": 0,
+"name": &"CarDie",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_lsxtw")
@@ -210,9 +227,8 @@ z_index = 1
 position = Vector2(0, -1)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_5hyx6")
-animation = &"left walk"
+animation = &"CarDie"
 autoplay = "baseidle"
-frame_progress = 0.60292006
 
 [node name="Shadow" type="Sprite2D" parent="." unique_id=755129008]
 position = Vector2(0, 5)

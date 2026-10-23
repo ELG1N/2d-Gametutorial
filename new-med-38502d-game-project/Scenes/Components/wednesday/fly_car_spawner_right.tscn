@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bn0vyadk8jaq1" path="res://Scenes/Components/wednesday/Flying_car_right.tscn" id="2_nd20g"]
 
 [node name="FlyCarSpawnerRight" type="Node2D" unique_id=1867599281]
+z_index = -1
 script = ExtResource("1_h4kpy")
 car = ExtResource("2_nd20g")
 

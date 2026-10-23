@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://pnndhkbdqpn3" path="res://Assets/Sprites/Monday/1542234092.svg" id="7_y4s5u"]
 [ext_resource type="AudioStream" uid="uid://cl5ejsviwl14p" path="res://Assets/Sounds/Monday/start.wav" id="8_ovv2c"]
 [ext_resource type="PackedScene" uid="uid://cccpdl8omifpr" path="res://Scenes/Components/Monday/itsflyingcar.tscn" id="9_cciga"]
+[ext_resource type="PackedScene" uid="uid://dv1umhwob2jdm" path="res://Scenes/Components/menu_screen.tscn" id="10_tftqx"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nygc3"]
 
@@ -213,6 +214,9 @@ offset_top = 227.0
 offset_right = 2458.0
 offset_bottom = 419.0
 color = Color(0, 0, 0, 1)
+
+[node name="MenuScreen" parent="." unique_id=1968588393 instance=ExtResource("10_tftqx")]
+visible = false
 
 [connection signal="die" from="Grandpa" to="Player" method="_on_grandpa_die"]
 [connection signal="die" from="Grandpa4" to="Player" method="_on_grandpa_die"]
