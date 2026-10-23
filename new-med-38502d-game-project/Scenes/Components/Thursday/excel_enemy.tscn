@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://xgto5cydvxod"]
+
+[ext_resource type="Script" uid="uid://3d767mpnf86j" path="res://Scripts/excel_enemy.gd" id="1_ahxpe"]
+[ext_resource type="Texture2D" uid="uid://g8rvwajo6yuc" path="res://Assets/Sprites/Thursday/ExcelEnemy-Sheet.png" id="1_hmvun"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahxpe"]
+atlas = ExtResource("1_hmvun")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmdu2"]
+atlas = ExtResource("1_hmvun")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pdhw"]
+atlas = ExtResource("1_hmvun")
+region = Rect2(64, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4s30h"]
+atlas = ExtResource("1_hmvun")
+region = Rect2(96, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5mm5"]
+atlas = ExtResource("1_hmvun")
+region = Rect2(128, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pvav"]
+atlas = ExtResource("1_hmvun")
+region = Rect2(160, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44mfg"]
+atlas = ExtResource("1_hmvun")
+region = Rect2(192, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yufn"]
+atlas = ExtResource("1_hmvun")
+region = Rect2(224, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mf1r7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahxpe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmdu2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7pdhw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4s30h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5mm5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pvav")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44mfg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4yufn")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_irjb3"]
+radius = 15.0
+height = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mf1r7"]
+radius = 18.0
+
+[node name="ExcelEnemy" type="CharacterBody2D" unique_id=815480137]
+script = ExtResource("1_ahxpe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=138048699]
+sprite_frames = SubResource("SpriteFrames_mf1r7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=81099794]
+shape = SubResource("CapsuleShape2D_irjb3")
+
+[node name="AreaOfAttack" type="Area2D" parent="." unique_id=1278695575]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaOfAttack" unique_id=2023172911]
+shape = SubResource("CircleShape2D_mf1r7")

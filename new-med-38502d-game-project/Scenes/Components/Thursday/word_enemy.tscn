@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://c3up68crj3afw"]
+
+[ext_resource type="Script" uid="uid://du6xurkdnx061" path="res://Scripts/Thursday/word_enemy.gd" id="1_npukn"]
+[ext_resource type="Texture2D" uid="uid://c0puu3uqxgkbq" path="res://Assets/Sprites/Thursday/WordEnemy-Sheet.png" id="1_ql441"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npukn"]
+atlas = ExtResource("1_ql441")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcypw"]
+atlas = ExtResource("1_ql441")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37e7k"]
+atlas = ExtResource("1_ql441")
+region = Rect2(64, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xe08l"]
+atlas = ExtResource("1_ql441")
+region = Rect2(96, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k12wp"]
+atlas = ExtResource("1_ql441")
+region = Rect2(128, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvw5j"]
+atlas = ExtResource("1_ql441")
+region = Rect2(160, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7mb0"]
+atlas = ExtResource("1_ql441")
+region = Rect2(192, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_su6h2"]
+atlas = ExtResource("1_ql441")
+region = Rect2(224, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mf1r7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npukn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcypw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37e7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xe08l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k12wp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvw5j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7mb0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_su6h2")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_twfsx"]
+radius = 15.0
+height = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_npukn"]
+radius = 18.0
+
+[node name="WordEnemy" type="CharacterBody2D" unique_id=1490590547]
+script = ExtResource("1_npukn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=164620506]
+sprite_frames = SubResource("SpriteFrames_mf1r7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1585602603]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_twfsx")
+
+[node name="AreaOfAttack" type="Area2D" parent="." unique_id=97633315]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaOfAttack" unique_id=46708070]
+shape = SubResource("CircleShape2D_npukn")

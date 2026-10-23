@@ -300,7 +300,6 @@ func check_battery():
 			single_dialogue_state = SingleDialogueState.LOUD
 			%SingleDialogueView.show_and_start_timer(DIALOGUE["battery-level-empty"])
 			await %SingleDialogueView.dialogue_end
-			print("**death animation**")
 			reset()
 
 func reset():
@@ -368,6 +367,7 @@ func _on_manhole_area_entered(area: Area2D) -> void:
 
 func _on_battery_01_area_entered(area: Area2D) -> void:
 	if !battery_one_collected:
+		battery_one_collected = true
 		single_dialogue_state = SingleDialogueState.LOUD
 		%SingleDialogueView.show_and_start_timer(DIALOGUE["first-battery"])
 		await %SingleDialogueView.dialogue_end
@@ -375,10 +375,12 @@ func _on_battery_01_area_entered(area: Area2D) -> void:
 
 func _on_battery_02_area_entered(area: Area2D) -> void:
 	if !battery_two_collected:
+		battery_two_collected = true
 		single_dialogue_state = SingleDialogueState.LOUD
 		%SingleDialogueView.show_and_start_timer(DIALOGUE["second-battery"])
 		await %SingleDialogueView.dialogue_end
 		battery_charge = DEFAULT_BATTERY_CHARGE
+		
 
 func _on_correct_area_announcement_area_entered(area: Area2D) -> void:
 	single_dialogue_state = SingleDialogueState.LOUD
