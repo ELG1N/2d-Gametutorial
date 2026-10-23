@@ -516,6 +516,7 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D" unique_id=1054670013]
 collision_layer = 3
+motion_mode = 1
 script = ExtResource("1_qtdd4")
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=963597398]

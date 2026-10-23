@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="NewMed38502DGameProject"
+<<<<<<< HEAD
 run/main_scene="uid://clm8e1qtynot6"
+=======
+run/main_scene="uid://clcshqq22iwo0"
+>>>>>>> 732257c (had to make player float in thursday)
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
+<<<<<<<HEADrun/main_scene="uid://clm8e1qtynot6"
 
 [display]
 
