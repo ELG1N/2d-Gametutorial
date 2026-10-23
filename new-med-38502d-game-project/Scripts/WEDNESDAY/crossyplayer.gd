@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-
+var is_dead: bool = false
 const SPEED = 65
 const JUMP_VELOCITY = -400.0
 var hopping: bool = false
@@ -22,6 +22,8 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	# Handle jump.
 	checkdeath()
+	if is_dead:
+		return
 	if log_count > 0:
 		position.x += log_speed * delta
 	if Input.is_action_just_pressed("Jump"):
@@ -36,12 +38,11 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = 0
 		$Sprite3.play("baseidle")
-		checkdeath()
-		if self.position.x < -89:
-			self.position.x = -89
-		elif self.position.x > 167:
-			self.position.x = 167
 	move_and_slide()
+	if self.position.x < -89:
+		self.position.x = -89
+	elif self.position.x > 167:
+		self.position.x = 167
 
 
 func hop():
@@ -71,6 +72,9 @@ func set_log_speed(Logspeed):
 
 
 func Die():
+	if is_dead:
+		return
+	is_dead = true
 	if death == 1:
 		set_process(false)
 		set_physics_process(false)
