@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://c60ti5ryac1tx"]
+
+[ext_resource type="Texture2D" uid="uid://cnl0p5jn1d5ir" path="res://Assets/Sprites/Thursday/PowerPointEnemy-Sheet.png" id="1_gealy"]
+[ext_resource type="Script" uid="uid://bao0d3i6h8mx8" path="res://Scripts/Thursday/power_point_enemy.gd" id="1_pu2ml"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pu2ml"]
+atlas = ExtResource("1_gealy")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d427m"]
+atlas = ExtResource("1_gealy")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kooly"]
+atlas = ExtResource("1_gealy")
+region = Rect2(64, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1go5v"]
+atlas = ExtResource("1_gealy")
+region = Rect2(96, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3mw2"]
+atlas = ExtResource("1_gealy")
+region = Rect2(128, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ec52h"]
+atlas = ExtResource("1_gealy")
+region = Rect2(160, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pptpy"]
+atlas = ExtResource("1_gealy")
+region = Rect2(192, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehs50"]
+atlas = ExtResource("1_gealy")
+region = Rect2(224, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_irjb3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pu2ml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d427m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kooly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1go5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3mw2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ec52h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pptpy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehs50")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_16fuj"]
+radius = 15.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pu2ml"]
+radius = 18.0
+
+[node name="PowerPointEnemy" type="CharacterBody2D" unique_id=1740830573]
+script = ExtResource("1_pu2ml")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1307421569]
+sprite_frames = SubResource("SpriteFrames_irjb3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1208390507]
+shape = SubResource("CircleShape2D_16fuj")
+
+[node name="AreaOfAttack" type="Area2D" parent="." unique_id=609918617]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaOfAttack" unique_id=2000982628]
+shape = SubResource("CircleShape2D_pu2ml")

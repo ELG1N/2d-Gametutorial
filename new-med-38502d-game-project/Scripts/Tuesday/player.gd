@@ -130,7 +130,7 @@ func clear_inventory() -> void:
 ##
 func _ready() -> void:
 	animation_type = GameTypes.MovementState.IDLE
-	$AnimatedSprite2D.play("default")
+	$AnimatedSprite2D.play("IDLE")
 	clear_inventory()
 #endregion
 
@@ -174,23 +174,23 @@ func _physics_process(delta: float) -> void:
 	match animation_type:
 		# Move "up"
 		GameTypes.MovementState.NORTH_EAST:
-			$AnimatedSprite2D.play("Northeast")
+			$AnimatedSprite2D.play("NORTHEAST")
 			direction += Vector2(0, -1)
 		# Move "down"
 		GameTypes.MovementState.SOUTH_WEST:
-			$AnimatedSprite2D.play("Southwest")
+			$AnimatedSprite2D.play("SOUTHWEST")
 			direction += Vector2(0, 1)
 		# Move "left"
 		GameTypes.MovementState.NORTH_WEST:
-			$AnimatedSprite2D.play("Northwest")
+			$AnimatedSprite2D.play("NORTHWEST")
 			direction += Vector2(-1, 0)
 		# Move "right"
 		GameTypes.MovementState.SOUTH_EAST:
-			$AnimatedSprite2D.play("Southeast")
+			$AnimatedSprite2D.play("SOUTHEAST")
 			direction += Vector2(1, 0)
 		# Don't move.
 		GameTypes.MovementState.IDLE:
-			$AnimatedSprite2D.play("default")
+			$AnimatedSprite2D.play("IDLE")
 			direction = Vector2.ZERO
 		
 	movement = direction.normalized() * SPEED * delta
